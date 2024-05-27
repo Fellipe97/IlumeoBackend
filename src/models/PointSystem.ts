@@ -4,18 +4,20 @@ import { db } from '../database/postgres'
 
 
 export interface PointSystemInterface {
-    id: number;
-    user_id: number;
-    begin: Date;
-    end: Date;
-    hours: string;
+    id?: number;
+    user_id?: number;
+    date?: string;
+    begin?: string;
+    end?: string;
+    hours?: string;
 }
 
 export class PointSystem extends Model<PointSystemInterface> implements PointSystemInterface {
     public id!: number;
     public user_id!: number;
-    public begin!: Date;
-    public end!: Date;
+    public date!: string;
+    public begin!: string;
+    public end!: string;
     public hours!: string;
 }
 
@@ -29,17 +31,19 @@ PointSystem.init({
         type: DataTypes.INTEGER,
         allowNull: false
     },
+    date: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
     begin: {
-        type: DataTypes.DATE,
+        type: DataTypes.STRING,
         allowNull: false
     },
     end: {
-        type: DataTypes.DATE,
-        allowNull: false
+        type: DataTypes.STRING
     },
     hours: {
-        type: DataTypes.STRING,
-        allowNull: false 
+        type: DataTypes.STRING
     }
 }, {
     sequelize: db,

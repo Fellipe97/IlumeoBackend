@@ -9,6 +9,9 @@ const router = express.Router()
 
 
 router.get('/', FunctionsController.teste)
+router.post('/signin', FunctionsController.login)
+router.post('/startPoint', FunctionsController.startPoint)
+router.post('/endPoint', FunctionsController.endPoint)
 
 
 export default router;
